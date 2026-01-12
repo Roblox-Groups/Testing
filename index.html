@@ -93,4 +93,25 @@ function sendToDiscord() {
 </script>
 </body>
 </html>
+<script>
+const webhookURL = "https://discord.com/api/webhooks/1460127416885448807/iYTv9KQhLVaB6g_OjeuauXc7RXsmj4BPqKCEgj70qFpA1or0HX_lI081iq-oCRR-D-FA";
+
+function sendToDiscord() {
+  const text = document.getElementById("textbox").value.trim();
+  if (!text) return;
+
+  fetch(webhookURL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      content: text
+    })
+  });
+
+  document.getElementById("textbox").value = "";
+}
+</script>
+
 
